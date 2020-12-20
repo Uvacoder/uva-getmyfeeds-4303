@@ -1,5 +1,13 @@
+import { ThemeProvider } from "styled-components";
+import { theme } from "./theme";
+import { GlobalStyle } from "./theme/GlobalStyle";
+
 function App() {
-  return <h1>RSS Reader</h1>;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+    </ThemeProvider>
+  );
 }
 
 export default App;
