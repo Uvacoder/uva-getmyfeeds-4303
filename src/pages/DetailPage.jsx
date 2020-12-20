@@ -8,6 +8,8 @@ import { BookmarkButton } from "../components/BookmarkButton";
 
 const DetailPage = () => {
   const { currentItem, isLoading } = useStore();
+  //used for going back to the previous state, an alternative was to hardcode the back value to / which would
+  //just take it back to the home.
   const history = useHistory();
 
   return (
@@ -24,7 +26,12 @@ const DetailPage = () => {
               <ButtonContainer />
               <BookmarkButton item={currentItem} />
             </ButtonWrapper>
-
+            {/* The JSON returned from the XML has 2 properties -> content and description, which
+              come up as html syntax. dangerouslySetInnerHTML allows us to write html content directly to the DOM,
+              without the usage of JSX.
+              An alternate to this would've been the html-parser library, which takes care of the security aspect of
+              the issue, however for the purpose of this small webapp, the inbuilt react version should suffice.
+            */}
             <ParsedHTML
               dangerouslySetInnerHTML={{ __html: currentItem.description }}
             />
@@ -63,6 +70,8 @@ const SubText = styled.p`
   font-style: italic;
 `;
 
+//Styling of the HTML Syntax available in the JSON
+//Done for better readibility
 const ParsedHTML = styled.div`
   display: flex;
   flex-direction: column;

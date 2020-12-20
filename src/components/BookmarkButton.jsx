@@ -7,6 +7,7 @@ export const BookmarkButton = ({ item }) => {
   const { setBookmarks } = useBookmarks();
   const { bookmarks } = useStore();
 
+  //Check to see if the ListItem already exists in our Global State
   const isBookmarked = bookmarks.some((fav) => fav.guid === item.guid);
 
   return (

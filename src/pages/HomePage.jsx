@@ -22,16 +22,18 @@ const HomePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //Ref for the input value instead of onChange
     const refValue = ref.current.value;
+    //Form Validations
     if (refValue !== "") {
       const response = await fetchFeed(`${MEDIUM_URL}${refValue}`);
-
+      //If RSS2JSON validates the url to be a good one, we add it to our feed list else throw an error
       if (response.status === "ok") {
         const feedObject = {
           name: refValue,
           url: `${MEDIUM_URL}${refValue}`,
         };
-
+        //Check if the feed already exists, so as to not add it again
         if (
           !feeds.some(
             (feed) => feed.name.toLowerCase() === feedObject.name.toLowerCase()
