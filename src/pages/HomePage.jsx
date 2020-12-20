@@ -47,6 +47,8 @@ const HomePage = () => {
       } else {
         setError(response.message);
       }
+    } else {
+      setError("Field cannot be empty");
     }
   };
 

@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useEffect } from "react";
-import { useBookmarks } from "../hooks/useBookmarks";
 import { useStore } from "../context";
 import FeedContainer from "../containers/FeedContainer";
 import LinkContainer from "../containers/LinkContainer";
