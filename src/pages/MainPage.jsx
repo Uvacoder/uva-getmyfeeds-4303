@@ -1,11 +1,21 @@
 import styled from "styled-components";
+import { useEffect } from "react";
+import { useBookmarks } from "../hooks/useBookmarks";
 import { useStore } from "../context";
 import FeedContainer from "../containers/FeedContainer";
+import LinkContainer from "../containers/LinkContainer";
 
 const MainPage = ({ url }) => {
   const { feedDetails } = useStore();
+  const { getBookmarks } = useBookmarks();
+
+  useEffect(() => {
+    getBookmarks();
+  }, []);
+
   return (
     <Wrapper>
+      <LinkContainer />
       <Heading>{feedDetails.title}</Heading>
       <SubText>{feedDetails.description}</SubText>
       <FeedContainer url={url} />

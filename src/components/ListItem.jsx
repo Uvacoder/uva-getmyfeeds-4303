@@ -2,20 +2,23 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BookmarkButton } from "./BookmarkButton";
 
-const ListItem = ({ title, author, thumbnail, handleClick, ...item }) => (
-  <Wrapper>
-    <RowFlex>
-      <StyledImage src={thumbnail} alt={title} />
-      <section>
-        <Heading onClick={handleClick} to={`/story/1`}>
-          {title}
-        </Heading>
-        <SubText>{author}</SubText>
-      </section>
-    </RowFlex>
-    <BookmarkButton item={item} />
-  </Wrapper>
-);
+const ListItem = ({ item, handleClick }) => {
+  const { title, author, thumbnail } = item;
+  return (
+    <Wrapper>
+      <RowFlex>
+        <StyledImage src={thumbnail} alt={title} />
+        <section>
+          <Heading onClick={handleClick} to={`/story/1`}>
+            {title}
+          </Heading>
+          <SubText>{author}</SubText>
+        </section>
+      </RowFlex>
+      <BookmarkButton item={item} />
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.article`
   padding: 10px;
