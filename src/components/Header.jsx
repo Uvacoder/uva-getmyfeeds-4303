@@ -30,6 +30,9 @@ const StyledHeading = styled(Link)`
   :visited {
     color: inherit;
   }
+  :active {
+    color: inherit;
+  }
 `;
 
 const StyledHeader = styled.header`

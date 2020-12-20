@@ -5,7 +5,5 @@ export const fetchFeed = async (URL) => {
     res.json()
   );
 
-  console.log(result);
-
   return result;
 };
