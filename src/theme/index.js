@@ -31,6 +31,7 @@ const light = {
     primary: "#D6E3F8",
     secondary: "#73A0E7",
     accent: "#6C7693",
+    link: "#235789",
   },
 };
 
@@ -42,6 +43,7 @@ const dark = {
     primary: "#2D3A3A",
     secondary: "#787E91",
     accent: "#7E8C9A",
+    link: "#EE6352",
   },
 };
 
