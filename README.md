@@ -8,6 +8,8 @@ Undertaken as part of a take home assignment, courtesy of Avoma.
 
 The app is a simple SPA RSS Reader created with React. It accepts an RSS Feed, and displays the information retrieved from the feed onto the app. Simple as that!
 
+![GIF](getyourfeeds.gif)
+
 ## What makes it work?
 
 The following technologies/dependencies have been used to create the app:
