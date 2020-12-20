@@ -5,6 +5,8 @@ import { fetchFeed } from "./services";
 import { useEffect } from "react";
 import Header from "./components/Header";
 import { useTheme } from "./hooks/useTheme";
+import { StoreProvider } from "./context";
+import { initialState, reducer } from "./reducers";
 
 function App() {
   useEffect(() => {
@@ -20,7 +22,9 @@ function App() {
   return (
     <ThemeProvider theme={storedTheme === "light" ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Header theme={storedTheme} handleClick={themeSwitcher} />
+      <StoreProvider reducer={reducer} initialState={initialState}>
+        <Header theme={storedTheme} handleClick={themeSwitcher} />
+      </StoreProvider>
     </ThemeProvider>
   );
 }

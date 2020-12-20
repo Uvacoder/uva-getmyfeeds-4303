@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { IoMdSunny } from "react-icons/io";
 import { RiMoonClearLine } from "react-icons/ri";
