@@ -32,8 +32,6 @@ const HomePage = () => {
           url: `${MEDIUM_URL}${refValue}`,
         };
 
-        console.log(feeds);
-
         if (
           !feeds.some(
             (feed) => feed.name.toLowerCase() === feedObject.name.toLowerCase()
@@ -61,7 +59,7 @@ const HomePage = () => {
         handleSubmit={handleSubmit}
         MEDIUM_URL={MEDIUM_URL}
       />
-      {error ? <p>Error - {error}</p> : null}
+      {error ? <ErrorText>Error - {error}</ErrorText> : null}
     </Wrapper>
   );
 };
@@ -71,12 +69,22 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 20px 0;
 `;
 
 const Heading = styled.h2`
   font-size: 48px;
   text-align: center;
   margin: 30px;
+
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
+`;
+
+const ErrorText = styled.p`
+  text-align: center;
+  color: #df2935;
 `;
 
 export default HomePage;

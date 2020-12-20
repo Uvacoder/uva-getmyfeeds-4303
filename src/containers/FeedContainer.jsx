@@ -48,6 +48,10 @@ const Wrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin: 10px 0;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export default FeedContainer;

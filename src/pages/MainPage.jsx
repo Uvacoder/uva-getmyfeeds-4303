@@ -26,11 +26,20 @@ const Wrapper = styled.div`
 
 const Heading = styled.h1`
   font-size: 40px;
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+  }
 `;
 
 const SubText = styled.p`
   font-size: 16px;
   color: ${(p) => p.theme.colors.accent};
+  text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export default MainPage;

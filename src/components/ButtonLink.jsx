@@ -5,6 +5,7 @@ export const ButtonLink = styled(NavLink)`
   padding: 8px 12px;
   font-family: ${(p) => p.theme.fonts.text};
   font-size: 14px;
+  text-align: center;
   background: ${(p) => p.theme.colors.elements};
   color: ${(p) => p.theme.colors.text};
   border: none;
@@ -20,5 +21,9 @@ export const ButtonLink = styled(NavLink)`
 
   &.active {
     background: ${(p) => p.theme.colors.secondary};
+  }
+
+  @media (max-width: 768px) {
+    width: ${(p) => p.w};
   }
 `;
