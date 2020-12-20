@@ -33,6 +33,10 @@ const StyledHeading = styled(Link)`
   :active {
     color: inherit;
   }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const StyledHeader = styled.header`
@@ -40,6 +44,10 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
+
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+  }
 `;
 
 export default Header;

@@ -11,7 +11,8 @@ const LinkContainer = () => {
         <ButtonLink
           key={`/${feed.name}`}
           to={`/${feed.name.toLowerCase()}`}
-          m={"0 10px"}
+          m={" 10px"}
+          w="100%"
         >
           {feed.name}
         </ButtonLink>
@@ -24,6 +25,11 @@ const Wrapper = styled.div`
   display: flex;
   padding: 20px;
   align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Text = styled.p`

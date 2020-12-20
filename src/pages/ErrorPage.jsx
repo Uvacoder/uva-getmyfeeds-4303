@@ -1,14 +1,23 @@
-import { Fragment } from "react";
 import styled from "styled-components";
+import { ButtonLink } from "../components/ButtonLink";
 
 const ErrorPage = () => {
   return (
-    <Fragment>
+    <Wrapper>
       <Heading>Whoops! We couldn't find what you were looking for.</Heading>
-      <SubText>Click on the Logo to head back</SubText>
-    </Fragment>
+      <SubText>Click on the Logo or Below to head back </SubText>
+      <ButtonLink to="/">Take me Back</ButtonLink>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+`;
 
 const Heading = styled.h2`
   font-size: 28px;
@@ -18,6 +27,7 @@ const Heading = styled.h2`
 const SubText = styled.p`
   color: ${(p) => p.theme.colors.accent};
   text-align: center;
+  margin: 20px 0;
 `;
 
 export default ErrorPage;

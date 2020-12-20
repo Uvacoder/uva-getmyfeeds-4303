@@ -35,6 +35,11 @@ const Wrapper = styled.article`
     transform: translate3D(0, -1px, 0) scale(1.03);
     transition-duration: 0.2s;
   }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    margin: 10px 0;
+  }
 `;
 
 const RowFlex = styled.div`

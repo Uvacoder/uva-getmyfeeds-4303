@@ -40,11 +40,20 @@ const DetailPage = () => {
 const Wrapper = styled.section`
   width: 65%;
   margin: 0 auto;
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const Heading = styled.h2`
   font-size: 28px;
   text-align: center;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin: 10px 0;
+  }
 `;
 
 const SubText = styled.p`
