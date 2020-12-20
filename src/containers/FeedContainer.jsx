@@ -17,15 +17,32 @@ const FeedContainer = ({ url }) => {
   }, []);
 
   return (
-    <>
-      <h1>Feed</h1>
+    <Wrapper>
       {!isLoading ? (
-        <pre>{JSON.stringify(feedItems)}</pre>
+        <>
+          <Heading>{feedDetails.title}</Heading>
+          <SubText>{feedDetails.description}</SubText>
+        </>
       ) : (
         <h2>Loading Data</h2>
       )}
-    </>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Heading = styled.h1`
+  font-size: "32px";
+`;
+
+const SubText = styled.p`
+  font-size: "16px";
+  color: ${(p) => p.theme.colors.accent};
+`;
 
 export default FeedContainer;

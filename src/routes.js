@@ -1,15 +1,18 @@
 import { Route, Switch } from "react-router-dom";
 import FeedContainer from "./containers/FeedContainer";
+import { useStore } from "./context";
 
-const Routes = () => (
-  <Switch>
-    <Route exact path="/">
-      <FeedContainer url={`https://medium.com/feed/backchannel`} />
-    </Route>
-    <Route exact path="/matter">
-      <FeedContainer url={`https://medium.com/feed/matter`} />
-    </Route>
-  </Switch>
-);
+const Routes = () => {
+  const { feeds } = useStore();
+  return (
+    <Switch>
+      {feeds.map((feed) => (
+        <Route key={feed.name} exact path={`/${feed.name.toLowerCase()}`}>
+          <FeedContainer url={feed.url} />
+        </Route>
+      ))}
+    </Switch>
+  );
+};
 
 export default Routes;

@@ -28,8 +28,8 @@ const light = {
     text: "#21232C",
     background: "#EFF1F5",
     elements: "#FFFFFF",
-    primary: "#de5252",
-    secondary: "#d9d9d9",
+    primary: "#D6E3F8",
+    secondary: "#73A0E7",
     accent: "#6C7693",
   },
 };
@@ -39,8 +39,8 @@ const dark = {
     text: "#F2F5F7",
     background: "#0D131A",
     elements: "#1E262F",
-    primary: "#2D7DD2",
-    secondary: "#cf7500",
+    primary: "#2D3A3A",
+    secondary: "#787E91",
     accent: "#7E8C9A",
   },
 };

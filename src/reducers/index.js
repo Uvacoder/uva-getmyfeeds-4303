@@ -3,7 +3,11 @@ const initialState = {
   isLoading: false,
   feedDetails: {},
   bookmarks: [],
-  feeds: [],
+  feeds: [
+    { name: "Matter", url: "https://medium.com/feed/matter" },
+    { name: "BackChannel", url: "https://medium.com/feed/backchannel" },
+    { name: "The-Economist", url: "https://medium.com/feed/the-economist" },
+  ],
 };
 
 function reducer(state, action) {
