@@ -27,10 +27,8 @@ const StyledHeading = styled(Link)`
   font-size: 36px;
   font-weight: ${(p) => p.theme.fontWeights.bold};
   text-decoration: none;
-  :visited {
-    color: inherit;
-  }
-  :active {
+  :visited,
+  :link {
     color: inherit;
   }
 
