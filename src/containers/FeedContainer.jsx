@@ -17,12 +17,22 @@ const FeedContainer = ({ url }) => {
     });
   }, []);
 
+  const handleListClick = (item) => {
+    dispatch({ type: "IS_LOADING", payload: true });
+    dispatch({ type: "CURRENT_ITEM", payload: item });
+    dispatch({ type: "IS_LOADING", payload: false });
+  };
+
   return (
     <Wrapper>
       {!isLoading ? (
         <>
           {feedItems.map((item) => (
-            <ListItem key={item.title} {...item} />
+            <ListItem
+              key={item.title}
+              {...item}
+              handleClick={() => handleListClick(item)}
+            />
           ))}
         </>
       ) : (

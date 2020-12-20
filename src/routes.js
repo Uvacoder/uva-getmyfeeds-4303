@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import { useStore } from "./context";
+import DetailPage from "./pages/DetailPage";
 
 const Routes = () => {
   const { feeds } = useStore();
@@ -11,6 +12,9 @@ const Routes = () => {
           <MainPage url={feed.url} />
         </Route>
       ))}
+      <Route path="/story/:id">
+        <DetailPage />
+      </Route>
     </Switch>
   );
 };

@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const ListItem = ({ title, author }) => (
+const ListItem = ({ title, author, handleClick }) => (
   <Wrapper>
     <div>
-      <Heading>{title}</Heading>
+      <Heading onClick={handleClick} to={`/story/1`}>
+        {title}
+      </Heading>
       <SubText>{author}</SubText>
     </div>
   </Wrapper>
@@ -21,8 +24,14 @@ const Wrapper = styled.article`
   width: 45%;
 `;
 
-const Heading = styled.h4`
+const Heading = styled(Link)`
   font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+
+  :visited {
+    color: inherit;
+  }
 `;
 
 const SubText = styled.p`
