@@ -1,16 +1,22 @@
 const initialState = {
   feedItems: [],
   isLoading: false,
-  feed: {},
+  feedDetails: {},
   bookmarks: [],
+  feeds: [],
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "FEED":
+    case "FEEDS":
       return {
         ...state,
-        feed: action.payload,
+        feeds: action.payload,
+      };
+    case "FEED_DETAILS":
+      return {
+        ...state,
+        feedDetails: action.payload,
       };
     case "FEED_ITEMS":
       return {
