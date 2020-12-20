@@ -10,6 +10,7 @@ import Routes from "./routes";
 function App() {
   const [storedTheme, setStoredTheme] = useTheme();
 
+  //Saves choice to Local Storage
   const themeSwitcher = () => {
     storedTheme === "light" ? setStoredTheme("dark") : setStoredTheme("light");
   };

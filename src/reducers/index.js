@@ -11,6 +11,7 @@ const initialState = {
   currentItem: {},
 };
 
+// Flux pattern of mutating a copy of the state based on reducers.
 function reducer(state, action) {
   switch (action.type) {
     case "FEEDS":

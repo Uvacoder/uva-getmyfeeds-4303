@@ -8,6 +8,7 @@ const FeedContainer = ({ url }) => {
   const dispatch = useDispatch();
   const { feedItems, isLoading } = useStore();
 
+  //Initial render and fetch of the feeds and then pushing to the global state
   useEffect(() => {
     dispatch({ type: "IS_LOADING", payload: true });
     fetchFeed(url).then((data) => {
@@ -17,6 +18,8 @@ const FeedContainer = ({ url }) => {
     });
   }, []);
 
+  //Takes the clicked item and pushes it to the state, making
+  //it available to the Detailed Page
   const handleListClick = (item) => {
     dispatch({ type: "IS_LOADING", payload: true });
     dispatch({ type: "CURRENT_ITEM", payload: item });

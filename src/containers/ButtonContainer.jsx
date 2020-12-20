@@ -5,8 +5,6 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 
-import { Button } from "../components/Button";
-
 const socials = [
   {
     name: "twitter",
