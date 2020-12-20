@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import FeedContainer from "./containers/FeedContainer";
+import MainPage from "./pages/MainPage";
 import { useStore } from "./context";
 
 const Routes = () => {
@@ -8,7 +8,7 @@ const Routes = () => {
     <Switch>
       {feeds.map((feed) => (
         <Route key={feed.name} exact path={`/${feed.name.toLowerCase()}`}>
-          <FeedContainer url={feed.url} />
+          <MainPage url={feed.url} />
         </Route>
       ))}
     </Switch>

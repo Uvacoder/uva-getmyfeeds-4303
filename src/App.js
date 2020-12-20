@@ -36,7 +36,7 @@ function App() {
 }
 
 const Container = styled.div`
-  width: 80%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
 `;

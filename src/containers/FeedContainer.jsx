@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { fetchFeed } from "../services";
 import { useDispatch, useStore } from "../context";
+import ListItem from "../components/ListItem";
 
 const FeedContainer = ({ url }) => {
   const dispatch = useDispatch();
-  const { feedDetails, feedItems, isLoading } = useStore();
+  const { feedItems, isLoading } = useStore();
 
   useEffect(() => {
     dispatch({ type: "IS_LOADING", payload: true });
@@ -20,8 +21,9 @@ const FeedContainer = ({ url }) => {
     <Wrapper>
       {!isLoading ? (
         <>
-          <Heading>{feedDetails.title}</Heading>
-          <SubText>{feedDetails.description}</SubText>
+          {feedItems.map((item) => (
+            <ListItem key={item.title} {...item} />
+          ))}
         </>
       ) : (
         <h2>Loading Data</h2>
@@ -32,17 +34,10 @@ const FeedContainer = ({ url }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-`;
-
-const Heading = styled.h1`
-  font-size: "32px";
-`;
-
-const SubText = styled.p`
-  font-size: "16px";
-  color: ${(p) => p.theme.colors.accent};
+  flex-wrap: wrap;
+  margin: 10px 0;
 `;
 
 export default FeedContainer;
