@@ -1,21 +1,10 @@
 import styled from "styled-components";
-import { useEffect } from "react";
-import { fetchFeed } from "../services";
-import { useDispatch, useStore } from "../context";
 import ListItem from "../components/ListItem";
+import { useStore, useDispatch } from "../context";
 
-const FeedContainer = ({ url }) => {
+const BookmarksPage = () => {
+  const { bookmarks } = useStore();
   const dispatch = useDispatch();
-  const { feedItems, isLoading } = useStore();
-
-  useEffect(() => {
-    dispatch({ type: "IS_LOADING", payload: true });
-    fetchFeed(url).then((data) => {
-      dispatch({ type: "FEED_DETAILS", payload: data.feed });
-      dispatch({ type: "FEED_ITEMS", payload: data.items });
-      dispatch({ type: "IS_LOADING", payload: false });
-    });
-  }, []);
 
   const handleListClick = (item) => {
     dispatch({ type: "IS_LOADING", payload: true });
@@ -23,11 +12,12 @@ const FeedContainer = ({ url }) => {
     dispatch({ type: "IS_LOADING", payload: false });
   };
 
+  console.log(bookmarks);
   return (
     <Wrapper>
-      {!isLoading ? (
+      {bookmarks.length > 0 ? (
         <>
-          {feedItems.map((item) => (
+          {bookmarks.map((item) => (
             <ListItem
               key={item.title}
               item={item}
@@ -36,7 +26,7 @@ const FeedContainer = ({ url }) => {
           ))}
         </>
       ) : (
-        <h2>Loading Data</h2>
+        <h2>No Bookmarks Added</h2>
       )}
     </Wrapper>
   );
@@ -50,4 +40,4 @@ const Wrapper = styled.div`
   margin: 10px 0;
 `;
 
-export default FeedContainer;
+export default BookmarksPage;

@@ -1,22 +1,32 @@
 import styled from "styled-components";
 import { useStore } from "../context";
+import { useHistory } from "react-router-dom";
+import { Button } from "../components/Button";
+import { BiArrowBack } from "react-icons/bi";
 
 const DetailPage = () => {
   const { currentItem, isLoading } = useStore();
+  const history = useHistory();
 
   return (
-    <Wrapper>
-      {!isLoading ? (
-        <>
-          <Heading>{currentItem.title}</Heading>
-          <ParsedHTML
-            dangerouslySetInnerHTML={{ __html: currentItem.description }}
-          />
-        </>
-      ) : (
-        <h2>Loading</h2>
-      )}
-    </Wrapper>
+    <>
+      <Button onClick={() => history.goBack()}>
+        <BiArrowBack /> Back
+      </Button>
+      <Wrapper>
+        {!isLoading ? (
+          <>
+            <Heading>{currentItem.title}</Heading>
+            <SubText> - {currentItem.author}</SubText>
+            <ParsedHTML
+              dangerouslySetInnerHTML={{ __html: currentItem.description }}
+            />
+          </>
+        ) : (
+          <h2>Loading</h2>
+        )}
+      </Wrapper>
+    </>
   );
 };
 
@@ -30,10 +40,18 @@ const Heading = styled.h2`
   text-align: center;
 `;
 
+const SubText = styled.p`
+  font-size: 16px;
+  color: ${(p) => p.theme.colors.accent};
+  text-align: right;
+  font-style: italic;
+`;
+
 const ParsedHTML = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 10px 0;
 
   h2 {
     display: none;

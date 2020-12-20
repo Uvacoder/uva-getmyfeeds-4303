@@ -8,7 +8,6 @@ import { useTheme } from "./hooks/useTheme";
 import { StoreProvider } from "./context";
 import { initialState, reducer } from "./reducers";
 import Routes from "./routes";
-import LinkContainer from "./containers/LinkContainer";
 
 function App() {
   useEffect(() => {
@@ -26,7 +25,6 @@ function App() {
       <GlobalStyle />
       <StoreProvider reducer={reducer} initialState={initialState}>
         <Header theme={storedTheme} handleClick={themeSwitcher} />
-        <LinkContainer />
         <Container>
           <Routes />
         </Container>
