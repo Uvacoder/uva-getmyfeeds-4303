@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { IoMdSunny } from "react-icons/io";
 import { RiMoonClearLine } from "react-icons/ri";
 
 const Header = ({ theme, handleClick }) => (
   <StyledHeader>
-    <StyledHeading>GetYourFeeds</StyledHeading>
+    <StyledHeading to="/">GetYourFeeds</StyledHeading>
     <div>
       <Button m={"0 10px"}>Bookmarks</Button>
       <Button onClick={handleClick}>
@@ -19,9 +20,13 @@ const Header = ({ theme, handleClick }) => (
   </StyledHeader>
 );
 
-const StyledHeading = styled.h1`
-  font-size: "36px";
+const StyledHeading = styled(Link)`
+  font-size: 36px;
   font-weight: ${(p) => p.theme.fontWeights.bold};
+  text-decoration: none;
+  :visited {
+    color: inherit;
+  }
 `;
 
 const StyledHeader = styled.header`

@@ -35,6 +35,10 @@ const ParsedHTML = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  h2 {
+    display: none;
+  }
+
   h4 {
     color: ${(p) => p.theme.colors.accent};
     text-align: center;
