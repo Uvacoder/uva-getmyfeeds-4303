@@ -12,7 +12,6 @@ const BookmarksPage = () => {
     dispatch({ type: "IS_LOADING", payload: false });
   };
 
-  console.log(bookmarks);
   return (
     <Wrapper>
       {bookmarks.length > 0 ? (

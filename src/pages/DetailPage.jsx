@@ -3,6 +3,8 @@ import { useStore } from "../context";
 import { useHistory } from "react-router-dom";
 import { Button } from "../components/Button";
 import { BiArrowBack } from "react-icons/bi";
+import ButtonContainer from "../containers/ButtonContainer";
+import { BookmarkButton } from "../components/BookmarkButton";
 
 const DetailPage = () => {
   const { currentItem, isLoading } = useStore();
@@ -18,6 +20,11 @@ const DetailPage = () => {
           <>
             <Heading>{currentItem.title}</Heading>
             <SubText> - {currentItem.author}</SubText>
+            <ButtonWrapper>
+              <ButtonContainer />
+              <BookmarkButton item={currentItem} />
+            </ButtonWrapper>
+
             <ParsedHTML
               dangerouslySetInnerHTML={{ __html: currentItem.description }}
             />
@@ -85,6 +92,12 @@ const ParsedHTML = styled.div`
   li {
     margin: 5px 20px;
   }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export default DetailPage;
