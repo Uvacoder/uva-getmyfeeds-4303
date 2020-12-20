@@ -2,7 +2,6 @@ const theme = {
   fonts: {
     text: "Inter",
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
     body: 400,
     heading: 500,
@@ -40,7 +39,7 @@ const dark = {
     text: "#F2F5F7",
     background: "#0D131A",
     elements: "#1E262F",
-    primary: "#fe7171",
+    primary: "#2D7DD2",
     secondary: "#cf7500",
     accent: "#7E8C9A",
   },
