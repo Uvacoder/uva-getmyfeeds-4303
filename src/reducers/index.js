@@ -8,6 +8,7 @@ const initialState = {
     { name: "BackChannel", url: "https://medium.com/feed/backchannel" },
     { name: "The-Economist", url: "https://medium.com/feed/the-economist" },
   ],
+  currentItem: {},
 };
 
 function reducer(state, action) {
@@ -36,6 +37,11 @@ function reducer(state, action) {
       return {
         ...state,
         bookmarks: action.payload,
+      };
+    case "CURRENT_ITEM":
+      return {
+        ...state,
+        currentItem: action.payload,
       };
 
     default:
