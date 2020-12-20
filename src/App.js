@@ -1,14 +1,12 @@
-import { fetchFeed } from "./services";
-import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./theme";
+import { GlobalStyle } from "./theme/GlobalStyle";
 
 function App() {
   return (
-    <>
-      <h1>RSS Reader</h1>
-      <button onClick={() => fetchFeed("https://medium.com/feed/backchannel")}>
-        Fetch Backchannel
-      </button>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+    </ThemeProvider>
   );
 }
 
