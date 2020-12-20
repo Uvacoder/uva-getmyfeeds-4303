@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { BookmarkButton } from "./BookmarkButton";
 
 const ListItem = ({ item, handleClick }) => {
-  const { title, author, thumbnail } = item;
+  const { title, author, thumbnail, guid } = item;
+  const storyID = guid.split("/p/")[1];
   return (
     <Wrapper>
       <RowFlex>
         <StyledImage src={thumbnail} alt={title} />
         <section>
-          <Heading onClick={handleClick} to={`/story/1`}>
+          <Heading onClick={handleClick} to={`/story/${storyID}`}>
             {title}
           </Heading>
           <SubText>{author}</SubText>
@@ -51,7 +52,8 @@ const Heading = styled(Link)`
   text-decoration: none;
   cursor: pointer;
 
-  :visited {
+  :visited,
+  :link {
     color: inherit;
   }
 `;
