@@ -16,6 +16,7 @@ const FeedContainer = ({ url }) => {
       dispatch({ type: "FEED_ITEMS", payload: data.items });
       dispatch({ type: "IS_LOADING", payload: false });
     });
+    // eslint-disable-next-line
   }, []);
 
   //Takes the clicked item and pushes it to the state, making

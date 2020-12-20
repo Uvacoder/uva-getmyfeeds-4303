@@ -16,6 +16,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getBookmarks();
+    // eslint-disable-next-line
   }, []);
 
   const MEDIUM_URL = "https://medium.com/feed/";
