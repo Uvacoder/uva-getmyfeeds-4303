@@ -1,8 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyle } from "./theme/GlobalStyle";
-import { fetchFeed } from "./services";
-import { useEffect } from "react";
 import Header from "./components/Header";
 import { useTheme } from "./hooks/useTheme";
 import { StoreProvider } from "./context";
@@ -10,10 +8,6 @@ import { initialState, reducer } from "./reducers";
 import Routes from "./routes";
 
 function App() {
-  useEffect(() => {
-    fetchFeed("https://medium.com/feed/the-economist");
-  }, []);
-
   const [storedTheme, setStoredTheme] = useTheme();
 
   const themeSwitcher = () => {

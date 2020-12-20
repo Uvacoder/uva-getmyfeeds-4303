@@ -14,6 +14,7 @@ const BookmarksPage = () => {
 
   return (
     <Wrapper>
+      <Heading>Bookmarks</Heading>
       {bookmarks.length > 0 ? (
         <>
           {bookmarks.map((item) => (
@@ -33,10 +34,15 @@ const BookmarksPage = () => {
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 10px 0;
+`;
+
+const Heading = styled.h1`
+  font-size: 40px;
 `;
 
 export default BookmarksPage;

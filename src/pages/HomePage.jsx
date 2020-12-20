@@ -1,15 +1,22 @@
 import styled from "styled-components";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Form from "../components/Form";
 import LinkContainer from "../containers/LinkContainer";
 import { fetchFeed } from "../services";
 import { useDispatch, useStore } from "../context";
+import { useBookmarks } from "../hooks/useBookmarks";
 
 const HomePage = () => {
   const ref = useRef("");
   const { feeds } = useStore();
   const dispatch = useDispatch();
   const [error, setError] = useState("");
+
+  const { getBookmarks } = useBookmarks();
+
+  useEffect(() => {
+    getBookmarks();
+  }, []);
 
   const MEDIUM_URL = "https://medium.com/feed/";
 
@@ -24,9 +31,21 @@ const HomePage = () => {
           name: refValue,
           url: `${MEDIUM_URL}${refValue}`,
         };
-        const newFeeds = feeds.concat(feedObject);
 
-        dispatch({ type: "FEEDS", payload: newFeeds });
+        console.log(feeds);
+
+        if (
+          !feeds.some(
+            (feed) => feed.name.toLowerCase() === feedObject.name.toLowerCase()
+          )
+        ) {
+          const newFeeds = feeds.concat(feedObject);
+          dispatch({ type: "FEEDS", payload: newFeeds });
+          setError("");
+          ref.current.value = "";
+        } else {
+          setError("Feed already exists");
+        }
       } else {
         setError(response.message);
       }

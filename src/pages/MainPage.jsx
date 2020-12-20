@@ -7,11 +7,6 @@ import LinkContainer from "../containers/LinkContainer";
 
 const MainPage = ({ url }) => {
   const { feedDetails } = useStore();
-  const { getBookmarks } = useBookmarks();
-
-  useEffect(() => {
-    getBookmarks();
-  }, []);
 
   return (
     <Wrapper>

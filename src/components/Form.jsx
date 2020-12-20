@@ -6,7 +6,9 @@ const Form = ({ inputRef, handleSubmit, MEDIUM_URL }) => {
     <StyledForm onSubmit={handleSubmit}>
       <Input type="text" value={MEDIUM_URL} disabled />
       <Input type="text" placeholder="the-economist" ref={inputRef} />
-      <Button h="100%">Add Feed</Button>
+      <Button h="auto" p="10px 12px">
+        Add Feed
+      </Button>
     </StyledForm>
   );
 };
