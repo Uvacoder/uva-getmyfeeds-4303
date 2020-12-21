@@ -57,7 +57,7 @@ const HomePage = () => {
 
   return (
     <Wrapper>
-      <Heading>The place to read your feeds.</Heading>
+      <Heading data-testid="app-intro">The place to read your feeds.</Heading>
       <LinkContainer />
       <Form
         inputRef={ref}

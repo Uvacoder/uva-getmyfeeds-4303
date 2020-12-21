@@ -9,10 +9,10 @@ const Header = ({ theme, handleClick }) => (
   <StyledHeader>
     <StyledHeading to="/">GetYourFeeds</StyledHeading>
     <div>
-      <ButtonLink to="/bookmarks" m={"0 10px"}>
+      <ButtonLink data-testid="bookmark-btn" to="/bookmarks" m={"0 10px"}>
         Bookmarks
       </ButtonLink>
-      <Button onClick={handleClick}>
+      <Button onClick={handleClick} data-testid="theme-btn">
         {theme === "light" ? (
           <IoMdSunny style={{ transition: "0.3s" }} />
         ) : (
