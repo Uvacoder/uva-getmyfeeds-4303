@@ -18,7 +18,7 @@ const ListItem = ({ item, handleClick }) => {
           <SubText>{author}</SubText>
         </section>
       </RowFlex>
-      <BookmarkButton item={item} />
+      <BookmarkButton item={item} data-testid={`bookmark-btn-${storyID}`} />
     </Wrapper>
   );
 };

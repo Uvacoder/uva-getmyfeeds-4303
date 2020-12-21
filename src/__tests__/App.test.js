@@ -4,13 +4,17 @@ import App from "../App";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 
-test("loads homepage", async () => {
+const RenderApp = () => {
   const history = createMemoryHistory();
-  render(
+  return (
     <Router history={history}>
       <App />
     </Router>
   );
+};
+
+test("loads homepage", async () => {
+  render(<RenderApp />);
 
   await waitFor(() =>
     expect(
@@ -20,12 +24,7 @@ test("loads homepage", async () => {
 });
 
 test("loads bookmarks on click", async () => {
-  const history = createMemoryHistory();
-  render(
-    <Router history={history}>
-      <App />
-    </Router>
-  );
+  render(<RenderApp />);
 
   fireEvent.click(screen.getByTestId("bookmark-btn"));
 
@@ -53,3 +52,32 @@ test("landing on a bad page", async () => {
     ).toBeInTheDocument()
   );
 });
+
+test("renders Matter feed", async () => {
+  render(<RenderApp />);
+
+  await waitFor(() => screen.getByText("Matter"));
+
+  fireEvent.click(screen.getByText("Matter"));
+
+  await waitFor(() => screen.getByText(/Matter - Medium/i));
+});
+
+// test("saves a bookmark", async () => {
+//   render(<RenderApp />);
+
+//   await waitFor(() => screen.getByText("Matter"));
+
+//   fireEvent.click(screen.getByText("Matter"));
+
+//   await waitFor(() => screen.getByText(/Matter - Medium/i));
+//   await waitFor(() => screen.getByText(/Means of Descent/i));
+
+//   fireEvent.click(screen.getByText(/Means of Descent/i));
+
+//   await fireEvent.click(
+//     screen.getByRole("button", {
+//       name: /bookmark-btn/i,
+//     })
+//   );
+// });
