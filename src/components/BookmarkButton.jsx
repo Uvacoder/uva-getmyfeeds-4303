@@ -11,11 +11,17 @@ export const BookmarkButton = ({ item }) => {
   const isBookmarked = bookmarks.some((fav) => fav.guid === item.guid);
 
   return (
-    <Button onClick={() => setBookmarks(item)}>
+    <Button onClick={() => setBookmarks(item)} aria-label="bookmark-btn">
       {isBookmarked ? (
-        <BsFillBookmarkFill style={{ fontSize: "24px" }} />
+        <BsFillBookmarkFill
+          style={{ fontSize: "24px" }}
+          data-testid="filled-bookmark"
+        />
       ) : (
-        <BsBookmark style={{ fontSize: "24px" }} />
+        <BsBookmark
+          style={{ fontSize: "24px" }}
+          data-testid="unfilled-bookmark"
+        />
       )}
     </Button>
   );
