@@ -20,3 +20,7 @@ export const Button = styled.button`
 Button.defaultProps = {
   pad: "8px 12px",
 };
+
+export const DeleteButton = styled(Button)`
+  background: #df2935;
+`;
