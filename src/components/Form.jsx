@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Button } from "./Button";
+import { MEDIUM_URL } from "../constants";
 
-const Form = ({ inputRef, handleSubmit, MEDIUM_URL }) => {
+const Form = ({ inputRef, handleSubmit }) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <Input type="text" value={MEDIUM_URL} disabled />

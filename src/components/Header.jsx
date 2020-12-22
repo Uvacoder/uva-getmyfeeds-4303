@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { ButtonLink } from "./ButtonLink";
 import { IoMdSunny } from "react-icons/io";
 import { RiMoonClearLine } from "react-icons/ri";
+//import { FiSettings } from "react-icons/fi";
 
 const Header = ({ theme, handleClick }) => (
   <StyledHeader>
@@ -12,6 +13,9 @@ const Header = ({ theme, handleClick }) => (
       <ButtonLink data-testid="bookmark-btn" to="/bookmarks" m={"0 10px"}>
         Bookmarks
       </ButtonLink>
+      {/* <ButtonLink data-testid="settings-btn" to="/settings" m={"0 5px"}>
+        <FiSettings />
+      </ButtonLink> */}
       <Button onClick={handleClick} data-testid="theme-btn">
         {theme === "light" ? (
           <IoMdSunny style={{ transition: "0.3s" }} />

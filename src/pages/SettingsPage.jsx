@@ -1,23 +1,15 @@
 import styled from "styled-components";
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef } from "react";
 import Form from "../components/Form";
 import LinkContainer from "../containers/LinkContainer";
-import { useDispatch, useStore } from "../context";
-import { useBookmarks } from "../hooks/useBookmarks";
+import { useStore, useDispatch } from "../context";
 import { createNewFeed } from "../utils";
 
-const HomePage = () => {
+const SettingsPage = () => {
   const ref = useRef("");
   const { feeds } = useStore();
   const dispatch = useDispatch();
   const [error, setError] = useState("");
-
-  const { getBookmarks } = useBookmarks();
-
-  useEffect(() => {
-    getBookmarks();
-    // eslint-disable-next-line
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +19,7 @@ const HomePage = () => {
 
   return (
     <Wrapper>
-      <Heading data-testid="app-intro">The place to read your feeds.</Heading>
+      <Heading>Settings</Heading>
       <LinkContainer />
       <Form inputRef={ref} handleSubmit={handleSubmit} />
       {error ? <ErrorText>Error - {error}</ErrorText> : null}
@@ -43,14 +35,8 @@ const Wrapper = styled.div`
   margin: 20px 0;
 `;
 
-const Heading = styled.h2`
-  font-size: 48px;
-  text-align: center;
-  margin: 30px;
-
-  @media (max-width: 480px) {
-    font-size: 30px;
-  }
+const Heading = styled.h1`
+  font-size: 40px;
 `;
 
 const ErrorText = styled.p`
@@ -58,4 +44,4 @@ const ErrorText = styled.p`
   color: #df2935;
 `;
 
-export default HomePage;
+export default SettingsPage;
