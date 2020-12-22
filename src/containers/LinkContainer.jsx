@@ -22,7 +22,7 @@ const LinkContainer = () => {
             <ButtonLink to={`/${feed.name.toLowerCase()}`} m={"10px"} w="100%">
               {feed.name}
             </ButtonLink>
-            <DeleteButton w={"90%"} onClick={() => handleDelete(feed)}>
+            <DeleteButton w={"auto"} onClick={() => handleDelete(feed)}>
               <AiFillDelete />
             </DeleteButton>
           </ButtonWrapper>
@@ -64,7 +64,7 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     width: 100%;
   }
 `;
