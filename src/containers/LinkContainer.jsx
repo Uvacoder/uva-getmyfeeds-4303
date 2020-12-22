@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonLink } from "../components/ButtonLink";
 import { useDispatch, useStore } from "../context";
 import { AiFillDelete } from "react-icons/ai";
-import { Button } from "../components/Button";
+import { Button, DeleteButton } from "../components/Button";
 
 const LinkContainer = () => {
   const { feeds } = useStore();
@@ -21,9 +21,9 @@ const LinkContainer = () => {
           <ButtonLink to={`/${feed.name.toLowerCase()}`} m={"10px"} w="100%">
             {feed.name}
           </ButtonLink>
-          <Button w={"90%"} onClick={() => handleDelete(feed)}>
+          <DeleteButton w={"90%"} onClick={() => handleDelete(feed)}>
             <AiFillDelete />
-          </Button>
+          </DeleteButton>
         </ButtonWrapper>
       ))}
     </Wrapper>
