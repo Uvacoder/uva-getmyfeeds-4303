@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonLink } from "../components/ButtonLink";
 import { useDispatch, useStore } from "../context";
 import { AiFillDelete } from "react-icons/ai";
-import { Button, DeleteButton } from "../components/Button";
+import { DeleteButton } from "../components/Button";
 
 const LinkContainer = () => {
   const { feeds } = useStore();
@@ -16,16 +16,20 @@ const LinkContainer = () => {
   return (
     <Wrapper>
       <Text>Available Feeds</Text>
-      {feeds.map((feed) => (
-        <ButtonWrapper key={`${feed.name}`}>
-          <ButtonLink to={`/${feed.name.toLowerCase()}`} m={"10px"} w="100%">
-            {feed.name}
-          </ButtonLink>
-          <DeleteButton w={"90%"} onClick={() => handleDelete(feed)}>
-            <AiFillDelete />
-          </DeleteButton>
-        </ButtonWrapper>
-      ))}
+      {feeds.length > 0 ? (
+        feeds.map((feed) => (
+          <ButtonWrapper key={`${feed.name}`}>
+            <ButtonLink to={`/${feed.name.toLowerCase()}`} m={"10px"} w="100%">
+              {feed.name}
+            </ButtonLink>
+            <DeleteButton w={"90%"} onClick={() => handleDelete(feed)}>
+              <AiFillDelete />
+            </DeleteButton>
+          </ButtonWrapper>
+        ))
+      ) : (
+        <ErrorText>No feeds present. Add them below</ErrorText>
+      )}
     </Wrapper>
   );
 };
@@ -47,6 +51,12 @@ const Text = styled.p`
   font-size: 18px;
   text-align: center;
   font-weight: ${(p) => p.theme.fontWeights.heading};
+  margin: 0 10px;
+`;
+
+const ErrorText = styled.p`
+  text-align: center;
+  color: #df2935;
 `;
 
 const ButtonWrapper = styled.div`
