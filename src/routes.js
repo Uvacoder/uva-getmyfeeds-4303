@@ -8,6 +8,7 @@ const DetailPage = lazy(() => import("./pages/DetailPage"));
 const BookmarksPage = lazy(() => import("./pages/BookmarksPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
+//const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 const Routes = () => {
   const { feeds } = useStore();
@@ -31,6 +32,7 @@ const Routes = () => {
         <Route path="/bookmarks">
           <BookmarksPage />
         </Route>
+
         <Route>
           <ErrorPage />
         </Route>
