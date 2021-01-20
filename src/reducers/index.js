@@ -3,7 +3,17 @@ const initialState = {
   isLoading: false,
   feedDetails: {},
   bookmarks: [],
-  feeds: [],
+  feeds: [
+    {
+      name: "Better-Programming",
+      url: "https://medium.com/feed/better-programming",
+    },
+    {
+      name: "Towards-Data-Science",
+      url: "https://medium.com/feed/towards-data-science",
+    },
+    { name: "The-Economist", url: "https://medium.com/feed/the-economist" },
+  ],
   currentItem: {},
 };
 
