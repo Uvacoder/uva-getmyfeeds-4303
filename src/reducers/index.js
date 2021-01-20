@@ -4,8 +4,14 @@ const initialState = {
   feedDetails: {},
   bookmarks: [],
   feeds: [
-    { name: "Matter", url: "https://medium.com/feed/matter" },
-    { name: "BackChannel", url: "https://medium.com/feed/backchannel" },
+    {
+      name: "Better-Programming",
+      url: "https://medium.com/feed/better-programming",
+    },
+    {
+      name: "Towards-Data-Science",
+      url: "https://medium.com/feed/towards-data-science",
+    },
     { name: "The-Economist", url: "https://medium.com/feed/the-economist" },
   ],
   currentItem: {},
