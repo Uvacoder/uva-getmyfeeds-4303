@@ -1,5 +1,5 @@
 # GetYourFeeds - A RSS Reader
-
+---
 ## Motivation
 
 Undertaken as part of a take home assignment, courtesy of Avoma.
